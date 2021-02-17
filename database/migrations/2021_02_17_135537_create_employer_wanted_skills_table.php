@@ -15,7 +15,18 @@ class CreateEmployerWantedSkillsTable extends Migration
     {
         Schema::create('employer_wanted_skills', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('employer_id');
+            $table->string('skill_name');
+            $table->unsignedFloat('skill_level');
+            $table->string('description');
             $table->timestamps();
+
+            // Relations
+
+            $table->foreign('employer_id')
+                ->on('employers')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 
