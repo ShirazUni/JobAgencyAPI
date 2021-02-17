@@ -15,8 +15,6 @@ use Symfony\Component\Routing\Route as RoutingRoute;
 |
 */
 
-Route::post('/Users', 'App');
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
