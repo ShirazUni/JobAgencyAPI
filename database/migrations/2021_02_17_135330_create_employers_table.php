@@ -15,10 +15,10 @@ class CreateEmployersTable extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
+            $table->string('first_name')->nullable();
             $table->string('last_name');
-            $table->string('company_name');
-            $table->string('about');
+            $table->string('company_name')->nullable();
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }

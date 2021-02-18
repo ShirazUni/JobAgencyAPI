@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('user_id'); // I think i should move this to employee and employer table
             $table->string('user_name');
             $table->string('email')->unique();
             $table->string('phone')->unique();

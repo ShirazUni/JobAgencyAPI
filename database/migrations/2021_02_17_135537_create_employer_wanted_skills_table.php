@@ -18,12 +18,13 @@ class CreateEmployerWantedSkillsTable extends Migration
             $table->unsignedBigInteger('employer_id');
             $table->string('skill_name');
             $table->unsignedFloat('skill_level');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
 
             // Relations
 
             $table->foreign('employer_id')
+                ->references('id')
                 ->on('employers')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');

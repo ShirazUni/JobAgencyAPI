@@ -17,22 +17,24 @@ class CreateRequestsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('employer_id');
-            $table->string('request_description')
+            $table->text('request_description')
                 ->default('Hey I am interested in the job you wanted. I will be happy to check my profile and send me your opinion.');
-            $table->boolean('is_accepted')->default(0);
+            $table->boolean('is_accepted')->default(false);
             $table->timestamps();
 
             // Relations
 
             $table->foreign('employee_id')
-                ->on('employees')
-                ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->references('id')
+                ->on('employees');
+            // ->onUpdate('cascade')
+            // ->onDelete('restrict');
 
             $table->foreign('employer_id')
-                ->on('employers')
-                ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->references('id')
+                ->on('employers');
+            // ->onUpdate('cascade')
+            // ->onDelete('restrict');
         });
     }
 

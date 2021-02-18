@@ -16,11 +16,11 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             //$table->integer('employee_skill_id');
-            $table->string('first_name');
+            $table->string('first_name')->nullable();
             $table->string('last_name');
             $table->unsignedSmallInteger('age')->nullable();
-            $table->string('about')->nullable();
-            $table->char('employee_status');
+            $table->text('about')->nullable();
+            $table->char('employee_status')->nullable(); // What are the status? looking for job - unemployed - employed - freelancer?
             $table->timestamps();
         });
     }
