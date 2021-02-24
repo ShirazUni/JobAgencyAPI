@@ -25,16 +25,16 @@ class CreateRequestsTable extends Migration
             // Relations
 
             $table->foreign('employee_id')
+                ->on('employees')
                 ->references('id')
-                ->on('employees');
-            // ->onUpdate('cascade')
-            // ->onDelete('restrict');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
 
             $table->foreign('employer_id')
+                ->on('employers')
                 ->references('id')
-                ->on('employers');
-            // ->onUpdate('cascade')
-            // ->onDelete('restrict');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 

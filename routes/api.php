@@ -19,12 +19,12 @@ use Symfony\Component\Routing\Route as RoutingRoute;
 |
 */
 
-Route::apiResource([
-    'users'    => UserController::class,
-    'Employee' => EmployeeController::class,
-    'Employer' => EmployerController::class,
-    'Request'  => RequestController::class
-]);
+// Route::apiResource([
+//     'users'    => UserController::class,
+//     'Employee' => EmployeeController::class,
+//     'Employer' => EmployerController::class,
+//     'Request'  => RequestController::class
+// ]);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
