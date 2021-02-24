@@ -25,7 +25,7 @@ class CreateEmployersTable extends Migration
             //Relations
 
             $table->foreign('user_id')
-                ->on('user')
+                ->on('users')
                 ->references('id')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');

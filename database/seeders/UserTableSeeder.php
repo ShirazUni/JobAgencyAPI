@@ -16,9 +16,9 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+        // User::truncate();
 
-        $faker = Factory::create();
+        $faker = Factory::create('fa_IR');
 
         $password = Hash::make('password');
 
