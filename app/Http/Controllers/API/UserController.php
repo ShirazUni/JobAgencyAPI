@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return User::all();
     }
 
     /**
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return User::create($request->all());
     }
 
     /**
@@ -36,7 +37,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return User::find($id);
     }
 
     /**
@@ -48,7 +49,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+
+        return $user;
     }
 
     /**
@@ -59,6 +63,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOfFail($id);
+        $user->delete();
+
+        return 204;
     }
 }
