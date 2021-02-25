@@ -19,8 +19,6 @@ use Symfony\Component\Routing\Route as RoutingRoute;
 |
 */
 
-
-
 // Route::apiResource([
 //     'users'    => UserController::class,
 //     'Employee' => EmployeeController::class,
@@ -48,6 +46,27 @@ Route::get('employer/{id}', 'API\EmployerController@show');
 Route::post('employer', 'API\EmployerController@store');
 Route::put('employer/{id}', 'API\EmployerController@update');
 Route::delete('employer', 'API\EmployerController@delete');
+
+// REQUEST API ROUTE
+Route::get('request', 'API\RequestController@index');
+Route::get('request/{id}', 'API\RequestController@show');
+Route::post('request', 'API\RequestController@store');
+Route::put('request/{id}', 'API\RequestController@update');
+Route::delete('request', 'API\RequestController@delete');
+
+// EMPLOYER WANTED SKILL API ROUTE
+Route::get('skill', 'API\EmployeeSkillController@index');
+Route::get('skill/{id}', 'API\EmployeeSkillController@show');
+Route::post('skill', 'API\EmployeeSkillController@store');
+Route::put('skill/{id}', 'API\EmployeeSkillController@update');
+Route::delete('skill', 'API\EmployeeSkillController@delete');
+
+// EMPLOYEE SKILL API ROUTE
+Route::get('wantedSkill', 'API\EmployeeWantedSkillController@index');
+Route::get('wantedSkill/{id}', 'API\EmployeeWantedSkillController@show');
+Route::post('wantedSkill', 'API\EmployeeWantedSkillController@store');
+Route::put('wantedSkill/{id}', 'API\EmployeeWantedSkillController@update');
+Route::delete('wantedSkill', 'API\EmployeeWantedSkillController@delete');
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
