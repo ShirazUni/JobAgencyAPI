@@ -18,28 +18,30 @@ class UserTableSeeder extends Seeder
     {
         // User::truncate();
 
-        $faker = Factory::create('fa_IR');
+        //$faker = Factory::create('fa_IR');
 
-        $password = Hash::make('password');
+        //$password = Hash::make('password');
 
-        for ($i = 0; $i < 50; $i++) {
-            User::create([
-                'user_name' => $faker->userName,
-                'email' => $faker->email,
-                'phone' => $faker->phoneNumber,
-                'password' => $password,
-                'user_type' => 'E'
-            ]);
-        }
+        // Moving to Employee Seeder Class
+        // for ($i = 0; $i < 50; $i++) {
+        //     User::create([
+        //         'user_name' => $faker->userName,
+        //         'email' => $faker->email,
+        //         'phone' => $faker->phoneNumber,
+        //         'password' => $password,
+        //         'user_type' => 'E'
+        //     ]);
+        // }
 
-        for ($i = 0; $i < 50; $i++) {
-            User::create([
-                'user_name' => $faker->userName,
-                'email' => $faker->email,
-                'phone' => $faker->phoneNumber,
-                'password' => $password,
-                'user_type' => 'R'
-            ]);
-        }
+        // Moving to Employer Seeder Class
+        // for ($i = 0; $i < 50; $i++) {
+        //     User::create([
+        //         'user_name' => $faker->userName,
+        //         'email' => $faker->email,
+        //         'phone' => $faker->phoneNumber,
+        //         'password' => $password,
+        //         'user_type' => 'R'
+        //     ]);
+        // }
     }
 }
