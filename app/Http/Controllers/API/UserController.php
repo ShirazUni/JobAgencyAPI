@@ -42,11 +42,6 @@ class UserController extends Controller
         return response()->json($user, 201);
     }
 
-    public function store1(Request $request)
-    {
-        return response()->json($request, 200);
-    }
-
     /**
      * Update the specified resource in storage.
      *

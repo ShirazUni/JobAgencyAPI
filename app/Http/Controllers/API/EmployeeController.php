@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -14,7 +15,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        return Employee::all();
     }
 
     /**
@@ -25,7 +26,9 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = Employee::create($request->all());
+
+        return response()->json($employee, 201);
     }
 
     /**
@@ -36,7 +39,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        return Employee::find($id);
     }
 
     /**
@@ -48,7 +51,10 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        $employee->update($request->all());
+
+        return response()->json($employee, 200);
     }
 
     /**
@@ -59,6 +65,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        $employee->delete();
+
+        return response()->json(null, 204);
     }
 }
