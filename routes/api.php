@@ -19,6 +19,8 @@ use Symfony\Component\Routing\Route as RoutingRoute;
 |
 */
 
+
+
 // Route::apiResource([
 //     'users'    => UserController::class,
 //     'Employee' => EmployeeController::class,
@@ -29,9 +31,10 @@ use Symfony\Component\Routing\Route as RoutingRoute;
 Route::get('user', 'API\UserController@index');
 Route::get('user/{id}', 'API\UserController@show');
 Route::post('user', 'API\UserController@store');
+Route::post('user/1', 'API\UserController@store1');
 Route::put('user/{id}', 'API\UserController@update');
 Route::delete('user', 'API\UserController@delete');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });

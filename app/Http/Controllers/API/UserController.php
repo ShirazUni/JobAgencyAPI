@@ -19,17 +19,6 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        return User::create($request->all());
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -38,6 +27,24 @@ class UserController extends Controller
     public function show($id)
     {
         return User::find($id);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $user = User::create($request->all());
+
+        return response()->json($user, 201);
+    }
+
+    public function store1(Request $request)
+    {
+        return response()->json($request, 200);
     }
 
     /**
@@ -52,7 +59,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->update($request->all());
 
-        return $user;
+        return response()->json($user, 200);
     }
 
     /**
@@ -66,6 +73,6 @@ class UserController extends Controller
         $user = User::findOfFail($id);
         $user->delete();
 
-        return 204;
+        return response()->json(null, 204);
     }
 }
