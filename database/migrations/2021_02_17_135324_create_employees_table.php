@@ -15,6 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             //$table->integer('employee_skill_id');
             $table->string('first_name')->nullable();
             $table->string('last_name');
@@ -22,6 +23,14 @@ class CreateEmployeesTable extends Migration
             $table->text('about')->nullable();
             $table->char('employee_status')->nullable(); // What are the status? looking for job - unemployed - employed - freelancer?
             $table->timestamps();
+
+            //Relations
+
+            $table->foreign('user_id')
+                ->on('users')
+                ->references('id')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 

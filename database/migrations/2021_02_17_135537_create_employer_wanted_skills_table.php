@@ -24,8 +24,8 @@ class CreateEmployerWantedSkillsTable extends Migration
             // Relations
 
             $table->foreign('employer_id')
-                ->references('id')
                 ->on('employers')
+                ->references('id')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
         });

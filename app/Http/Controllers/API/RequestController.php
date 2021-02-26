@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Request as ModelsRequest;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class RequestController extends Controller
@@ -14,7 +16,7 @@ class RequestController extends Controller
      */
     public function index()
     {
-        //
+        return ModelsRequest::all();
     }
 
     /**
@@ -25,7 +27,9 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestModel = ModelsRequest::create($request->all());
+
+        return response()->json($requestModel, 201);
     }
 
     /**
@@ -36,7 +40,7 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        //
+        return ModelsRequest::find($id);
     }
 
     /**
@@ -48,7 +52,10 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $requestModel = ModelsRequest::findOfFail($id);
+        $requestModel->update($request->all());
+
+        return response()->json($requestModel, 200);
     }
 
     /**
@@ -59,6 +66,9 @@ class RequestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $requestModel = ModelsRequest::findOfFail($id);
+        $requestModel->delete();
+
+        return response()->json(null, 204);
     }
 }

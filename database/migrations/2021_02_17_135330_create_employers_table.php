@@ -15,11 +15,20 @@ class CreateEmployersTable extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('first_name')->nullable();
             $table->string('last_name');
             $table->string('company_name')->nullable();
             $table->text('about')->nullable();
             $table->timestamps();
+
+            //Relations
+
+            $table->foreign('user_id')
+                ->on('users')
+                ->references('id')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 
