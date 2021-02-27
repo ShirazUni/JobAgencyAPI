@@ -24,18 +24,18 @@ class EmployeeTableSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) {
             User::create([
                 'user_name' => $faker->userName,
-                'email' => $faker->email,
-                'phone' => $faker->phoneNumber,
-                'password' => $password,
+                'email'     => $faker->email,
+                'phone'     => $faker->phoneNumber,
+                'password'  => $password,
                 'user_type' => 'E'
             ]);
 
             Employee::create([
-                'user_id' => $i,
-                'first_name' => $faker->firstName,
-                'last_name' => $faker-> lastName,
-                'age' => $faker->numberBetween(18, 45),
-                'about' => $faker->realText(200),
+                'user_id'         => $i,
+                'first_name'      => $faker->firstName,
+                'last_name'       => $faker->lastName,
+                'age'             => $faker->numberBetween(18, 45),
+                'about'           => $faker->realText(200),
                 'employee_status' => 'U'
             ]);
         }
