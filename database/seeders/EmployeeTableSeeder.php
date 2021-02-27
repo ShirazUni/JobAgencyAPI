@@ -31,7 +31,7 @@ class EmployeeTableSeeder extends Seeder
             ]);
 
             Employee::create([
-                'user_id'         => $i,
+                'user_id'         => $i + 1,
                 'first_name'      => $faker->firstName,
                 'last_name'       => $faker->lastName,
                 'age'             => $faker->numberBetween(18, 45),

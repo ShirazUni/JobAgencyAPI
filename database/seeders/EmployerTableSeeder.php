@@ -31,7 +31,7 @@ class EmployerTableSeeder extends Seeder
             ]);
 
             Employer::create([
-                'user_id'      => $i    ,
+                'user_id'      => $i     + 1,
                 'first_name'   => $faker->firstName,
                 'last_name'    => $faker->lastName,
                 'company_name' => $faker->company,

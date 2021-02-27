@@ -18,8 +18,6 @@ class RequestTableSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        $password = Hash::make('password');
-
         for ($i = 0; $i < 50; $i++) {
             Request::create([
                 'employee_id'         => $faker->numberBetween(1, 50),
