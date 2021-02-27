@@ -20,8 +20,8 @@ class RequestTableSeeder extends Seeder
 
         for ($i = 0; $i < 50; $i++) {
             Request::create([
-                'employee_id'         => $faker->numberBetween(1, 50),
-                'employer_id'         => $faker->numberBetween(51, 100),
+                'employee_id'         => $faker->numberBetween(1, 99),
+                'employer_id'         => $faker->numberBetween(101, 199),
                 'request_description' => $faker->text,
                 'is_accepted'         => $faker->boolean
             ]);

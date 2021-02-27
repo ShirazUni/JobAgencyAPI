@@ -21,7 +21,7 @@ class EmployeeTableSeeder extends Seeder
 
         $password = Hash::make('password');
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             User::create([
                 'user_name' => $faker->userName,
                 'email'     => $faker->email,
