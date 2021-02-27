@@ -17,7 +17,7 @@ class EmployeeTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create();
+        $faker = Factory::create('fa_IR');
 
         $password = Hash::make('password');
 

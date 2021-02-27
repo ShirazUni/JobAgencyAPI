@@ -16,12 +16,12 @@ class RequestTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create();
+        $faker = Factory::create('fa_IR');
 
         for ($i = 0; $i < 50; $i++) {
             Request::create([
                 'employee_id'         => $faker->numberBetween(1, 50),
-                'employer_id'         => $faker->numberBetween(1, 50),
+                'employer_id'         => $faker->numberBetween(51, 100),
                 'request_description' => $faker->text,
                 'is_accepted'         => $faker->boolean
             ]);
